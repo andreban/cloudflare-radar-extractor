@@ -17,8 +17,10 @@
 
 import { open, readFile } from 'node:fs/promises';
 import { BrowserShareParams, getBrowserShare } from './radar';
-const AUTH_TOKEN = '';
 
+// The CloudFlare Radar API doesn't allow pulling more than a year's worth of date in each request.
+// Therefore, the requests are broken by year. The first request in that list will retrieve data
+// starting in 2021-12-27, which is the earliest data available in the API.
 const dates = [
   {start: new Date('2022-01-01'), end: new Date('2022-12-31')},
   {start: new Date('2023-01-01'), end: new Date()},
