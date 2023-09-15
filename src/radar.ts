@@ -55,7 +55,7 @@ export async function getBrowserShare(authToken: string, dateStart: Date, dateEn
     url.searchParams.append("botClass", params.botClass);    
   }
 
-  console.error("Requesting -> ", url.toString())
+  console.info("Requesting -> ", url.toString())
   
   let response = await fetch(url.toString(), {
     headers: {
